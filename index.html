@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calculator Using Eval Function</title>
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="header">
+        <div class="window">
+          <span class="red"></span>
+          <span class="yellow"></span>
+          <span class="green"></span>
+        </div>
+        <div class="input">
+          <div style="flex-grow: 1">
+            <span style="font-size: small" id="inputString"
+              ><span style="visibility: hidden">.</span></span
+            >
+          </div>
+          <div style="flex-grow: 1">
+            <span id="outputValue"></span>
+          </div>
+        </div>
+      </div>
+      <div class="keys">
+        <div class="row">
+          <div class="number">
+            <span class="numItem">7</span>
+            <span class="numItem">8</span>
+            <span class="numItem">9</span>
+          </div>
+          <div class="symbol">
+            <span onclick="operatorSet('/')">÷</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="number">
+            <span class="numItem">4</span>
+            <span class="numItem">5</span>
+            <span class="numItem">6</span>
+          </div>
+          <div class="symbol">
+            <span onclick="operatorSet('-')">-</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="number">
+            <span class="numItem">1</span>
+            <span class="numItem">2</span>
+            <span class="numItem">3</span>
+          </div>
+          <div class="symbol">
+            <span onclick="operatorSet('+')">+</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="number">
+            <span class="dull" onclick="resetFN(true);">AC</span>
+            <span class="numItem">0</span>
+            <span class="numItem">.</span>
+          </div>
+          <div class="symbol action">
+            <span onclick="calculate()">=</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="credit">
+      Inspired from the design by
+      <a href="https://dribbble.com/shots/3998247-Calculator" target="_blank"
+        >Dennis</a
+      >
+    </p>
+    <script src="script.js"></script>
+  </body>
+</html>
