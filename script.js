@@ -16,7 +16,7 @@ numItem.forEach((element) => {
 
 function evaluateResult(string) {
   try {
-    let evalOp = eval(string.toString()).toString();
+    let evalOp = eval(string.toString().replace("x", "*")).toString();
     if (evalOp == "Infinity") {
       outputString = "Cant Divide By Zero";
       resetFN(false);
@@ -105,8 +105,7 @@ function calculate() {
     evaluateResult(evalString);
     evalString += "=";
     outputString = outputResult.toString();
-    inputString = evalString;
-    render(outputString, inputString);
+    render(outputString, evalString);
     firstEx = outputResult.toString();
     secondEx = null;
     evalString = outputResult.toString();
