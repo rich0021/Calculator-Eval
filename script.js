@@ -109,6 +109,7 @@ function calculate() {
     firstEx = outputResult.toString();
     secondEx = null;
     evalString = outputResult.toString();
+    operator = null;
   }
 }
 
