@@ -4,7 +4,7 @@ let operator = null;
 let outputString = "0";
 let outputResult = 0;
 let evalString = "";
-const operatorConst = ["+", "-", "/", "*"];
+const operatorConst = ["+", "-", "/", "x"];
 
 const outputUI = document.getElementById("outputValue");
 const inputStringUI = document.getElementById("inputString");
@@ -27,8 +27,9 @@ function evaluateResult(string) {
   } catch (error) {
     if (error == "Cant Divide By Zero" || error == "Unknown Number") {
       throw error;
+    } else {
+      throw "Error";
     }
-    return;
   }
 }
 
