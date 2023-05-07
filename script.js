@@ -17,16 +17,17 @@ numItem.forEach((element) => {
 function evaluateResult(string) {
   try {
     let evalOp = eval(string.toString().replace("x", "*")).toString();
-    if (evalOp == "Infinity") {
-      outputString = "Cant Divide By Zero";
-      resetFN(false);
-    } else if (evalOp == "NaN") {
-      outputString = "Unknown Number";
-      resetFN(false);
+    if (evalOp.toString() == "Infinity") {
+      throw "Cant Divide By Zero";
+    } else if (evalOp.toString() == "NaN") {
+      throw "Unknown Number";
     } else {
       outputResult = evalOp;
     }
   } catch (error) {
+    if (error == "Cant Divide By Zero" || error == "Unknown Number") {
+      throw error;
+    }
     return;
   }
 }
@@ -102,14 +103,19 @@ function resetFN(withUI) {
 
 function calculate() {
   if (firstEx && secondEx && operator) {
-    evaluateResult(evalString);
-    evalString += "=";
-    outputString = outputResult.toString();
+    try {
+      evaluateResult(evalString);
+      evalString += "=";
+      outputString = outputResult.toString();
+      firstEx = outputResult.toString();
+      secondEx = null;
+      evalString = outputResult.toString();
+      operator = null;
+    } catch (error) {
+      resetFN(true);
+      outputString = error;
+    }
     render(outputString, evalString);
-    firstEx = outputResult.toString();
-    secondEx = null;
-    evalString = outputResult.toString();
-    operator = null;
   }
 }
 
